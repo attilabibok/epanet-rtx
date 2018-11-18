@@ -6,8 +6,13 @@
 //  See README.md and license.txt for more information
 //  
 
+#ifdef _WIN32
+	#define isnan(x) (x!=x)
+#endif
+
 #include "Point.h"
 #include <math.h>
+#include <iostream>
 
 using namespace std;
 using namespace RTX;

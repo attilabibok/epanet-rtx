@@ -27,3 +27,12 @@ Debug/
 
 *.mode1v3
 *.mode2v3
+/.vs/VSWorkspaceState.json
+/.vs/slnx.sqlite
+/.vs/ProjectSettings.json
+/.vs/epanet-rtx/v15/Browse.VC.db
+/.vs/epanet-rtx/v15/.suo
+/.vs/epanet-rtx/v15
+/build/msvs/epanet-rtx/.vs/epanet-rtx/v15
+/build/msvs/epanet-rtx/Release/epanet-rtx.tlog
+/build/msvs/epanet-rtx/Release

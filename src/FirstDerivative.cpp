@@ -11,7 +11,7 @@
 using namespace std;
 using namespace RTX;
 
-FirstDerivative::FirstDerivative() : ModularTimeSeries::ModularTimeSeries() {
+FirstDerivative::FirstDerivative() : ModularTimeSeries() {
   
 }
 

@@ -5,13 +5,18 @@
 //  Created by the EPANET-RTX Development Team
 //  See README.md and license.txt for more information
 //  
+#define timegm _mkgmtime
 
-
+#include <time.h>
 #include "OdbcPointRecord.h"
 #include <boost/foreach.hpp>
 #include <boost/range/adaptors.hpp>
 #include <boost/algorithm/string.hpp>
 #include <boost/date_time.hpp>
+#define _GNU_SOURCE /* for tm_gmtoff and tm_zone */
+#ifdef WIN32
+#   define timegm _mkgmtime
+#endif
 
 using namespace RTX;
 using namespace std;
@@ -489,11 +494,15 @@ time_t OdbcPointRecord::unixTime(SQL_TIMESTAMP_STRUCT sqlTime) {
   tmTimestamp.tm_min = sqlTime.minute;
   tmTimestamp.tm_sec = sqlTime.second;
   
-  
   myUnixTime = mktime(&tmTimestamp);
   // mktime sets to local time zone, but the passed-in structure should be UTC
   if (timeFormat() == UTC) {
+#ifdef WIN32
+	  myUnixTime = _mkgmtime(&tmTimestamp);
+#elif
     myUnixTime += pTimestamp->tm_gmtoff;
+#endif
+
   }
   if (tmTimestamp.tm_isdst == 1) {
     myUnixTime -= 3600;

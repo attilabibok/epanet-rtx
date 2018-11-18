@@ -1612,8 +1612,9 @@ int  DLLEXPORT ENgetcurve(int curveIndex, int *nValues, double **xValues, double
   
   double *pointX = calloc(nPoints, sizeof(double));
   double *pointY = calloc(nPoints, sizeof(double));
-  
-  for (int iPoint = 0; iPoint < nPoints; iPoint++) {
+
+  int iPoint;// moved it above the loop to silence the ERROR of VS
+  for (iPoint = 0; iPoint < nPoints; iPoint++) {
     double x = curve.X[iPoint] * Ucf[LENGTH];
     double y = curve.Y[iPoint] * Ucf[VOLUME];
     pointX[iPoint] = x;

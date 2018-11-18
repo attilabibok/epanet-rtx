@@ -2,6 +2,7 @@
 
 #include "SineTimeSeries.h"
 
+#define M_PI 3.141592653589793
 
 using namespace RTX;
 using namespace std;

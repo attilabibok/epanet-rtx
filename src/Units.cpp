@@ -7,6 +7,7 @@
 //  
 
 #include <iostream>
+#include <string>
 #include <map>
 #include "Units.h"
 
@@ -180,7 +181,7 @@ Units Units::unitOfType(const string& unitString) {
     return unitMap[unitString];
   }
   else {
-    cerr << "Units not recognized: " << unitString << endl;
+    cerr << "Units not recognized: " << unitString.c_str() << endl;
     return RTX_DIMENSIONLESS;
   }
 }

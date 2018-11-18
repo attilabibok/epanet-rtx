@@ -9,6 +9,7 @@
 #include "BufferPointRecord.h"
 
 #include "boost/foreach.hpp"
+#include <iostream>
 
 using namespace RTX;
 using namespace std;

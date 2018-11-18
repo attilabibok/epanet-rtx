@@ -11,7 +11,13 @@
 
 #include <string.h>
 #include <map>
-#include <tr1/unordered_map>
+
+#if (_MSC_VER >= 1700)
+   #include <unordered_map>
+#elif (_MSC_VER < 1700)
+   #include <unordered_map>
+#endif
+
 #include <time.h>
 #include <boost/foreach.hpp>
 #include "rtxExceptions.h"

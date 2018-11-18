@@ -15,6 +15,7 @@
 
 #include <deque>
 
+#include <Windows.h> //fixes sql*.h syntax errors
 #include <sql.h>
 #include <sqlext.h>
 
