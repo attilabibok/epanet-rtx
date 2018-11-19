@@ -36,3 +36,5 @@ Debug/
 /build/msvs/epanet-rtx/.vs/epanet-rtx/v15
 /build/msvs/epanet-rtx/Release/epanet-rtx.tlog
 /build/msvs/epanet-rtx/Release
+/examples/validator
+/build/msvs/epanet-rtx/epanet-rtx.sdf

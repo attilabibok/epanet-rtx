@@ -11,8 +11,12 @@
 #include <boost/accumulators/accumulators.hpp>
 #include <boost/accumulators/statistics/stats.hpp>
 #include <boost/accumulators/statistics/mean.hpp>
-#include <math.h>
 
+#if (_MSC_PLATFORM_TOOLSET > 100)
+#include <cmath>
+#elif (_MSC_PLATFORM_TOOLSET <= 100)
+#include <math.h>
+#endif
 #include <iostream>
 
 using namespace RTX;
@@ -94,7 +98,7 @@ Point MovingAverage::movingAverageAt(time_t time) {
   // get a collection of points around "time" from the source() timeseries, and send them to the calculator.
   
   std::vector< Point > somePoints;
-  int halfWindow = floor((float)_windowSize / 2); //cast float to convert from int
+  int halfWindow = std::floor((float)_windowSize / 2); //cast float to convert from int
   
   // push in the point at the current time
   somePoints.push_back( source()->point(time) );

@@ -6,12 +6,16 @@
 //  See README.md and license.txt for more information
 //  
 
-#ifdef _WIN32
-	#define isnan(x) (x!=x)
-#endif
+//#ifdef _WIN32
+//	#define isnan(x) (x!=x)
+//#endif
 
 #include "Point.h"
+#if (_MSC_PLATFORM_TOOLSET > 100)
+#include <cmath>
+#elif (_MSC_PLATFORM_TOOLSET <= 100)
 #include <math.h>
+#endif
 #include <iostream>
 
 using namespace std;
@@ -22,8 +26,8 @@ Point::Point() : time(0),value(0),quality(Point::missing),isValid(false),confide
 }
 
 
-Point::Point(time_t t, double v, Qual_t q, double c) : time(t),value(v),quality(q),isValid((q == missing)||(isnan(v)) ? false : true),confidence(c) {
-  if (isnan(v)) {
+Point::Point(time_t t, double v, Qual_t q, double c) : time(t),value(v),quality(q),isValid((q == missing)||(std::isnan(v)) ? false : true),confidence(c) {
+  if (std::isnan(v)) {
     cout << "nan" << endl;
   }
 }

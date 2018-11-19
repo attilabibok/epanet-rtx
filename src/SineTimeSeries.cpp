@@ -1,4 +1,8 @@
+#if (_MSC_PLATFORM_TOOLSET > 100)
+#include <cmath>
+#elif (_MSC_PLATFORM_TOOLSET <= 100)
 #include <math.h>
+#endif
 
 #include "SineTimeSeries.h"
 
@@ -19,7 +23,7 @@ Point SineTimeSeries::point(time_t time) {
     time = clock()->timeBefore(time);
   }
   
-  double value = sin((double)time * M_PI * 2 / (24*60*60));
+  double value = std::sin((double)time * M_PI * 2 / (24*60*60));
   return Point(time, value);
   
 }
