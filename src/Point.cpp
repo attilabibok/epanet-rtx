@@ -7,15 +7,17 @@
 //  
 
 //#ifdef _WIN32
-//	#define isnan(x) (x!=x)
+//#if (_MSC_PLATFORM_TOOLSET <= 100)
+//#define isnan(x) (x!=x)
+//#endif
 //#endif
 
 #include "Point.h"
-#if (_MSC_PLATFORM_TOOLSET > 100)
+//#if (_MSC_PLATFORM_TOOLSET > 100)
 #include <cmath>
-#elif (_MSC_PLATFORM_TOOLSET <= 100)
-#include <math.h>
-#endif
+//#elif (_MSC_PLATFORM_TOOLSET <= 100)
+//#include <math.h>
+//#endif
 #include <iostream>
 
 using namespace std;

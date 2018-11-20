@@ -1,8 +1,8 @@
-#if (_MSC_PLATFORM_TOOLSET > 100)
+//#if (_MSC_PLATFORM_TOOLSET > 100)
 #include <cmath>
-#elif (_MSC_PLATFORM_TOOLSET <= 100)
-#include <math.h>
-#endif
+//#elif (_MSC_PLATFORM_TOOLSET <= 100)
+//#include <math.h>
+//#endif
 
 #include "SineTimeSeries.h"
 
